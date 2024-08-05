@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flood Prediction</title>
+</head>
+<body>
+    <h1>Current Water Level: {{ current_data }}</h1>
+    <h2>Risk Level: {{ risk_level }}</h2>
+    {% if flood_predicted %}
+        <div style="color: red;">Flood warning! Current water level is above the risk level.</div>
+    {% endif %}
+</body>
+</html>

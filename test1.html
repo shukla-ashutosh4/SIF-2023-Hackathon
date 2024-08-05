@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landscape Dynamics and Flood Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+
+        #map-container {
+            height: 400px;
+            width: 100%;
+        }
+
+        #warning {
+            background-color: #ff6347; /* Tomato color for warning */
+            padding: 10px;
+            text-align: center;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Landscape Dynamics and Flood Prediction</h1>
+    </header>
+
+    <div id="warning">
+        <strong>Warning:</strong> Flood risk level exceeded!
+    </div>
+
+    <div id="map-container"></div>
+
+    <script>
+        // You can include your geospatial library (e.g., Leaflet, Mapbox, Google Maps) script here
+        // For example, you can include Leaflet with the following script tag:
+        // <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+        // Then, you can initialize your map and handle real-time data and flood prediction logic.
+
+        // Example: Leaflet map initialization
+        const map = L.map('map-container').setView([0, 0], 2);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
+
+        // Example: Simulated real-time data
+        setInterval(() => {
+            const currentFloodLevel = Math.random() * 10; // Simulated real-time flood data
+            updateMap(currentFloodLevel);
+        }, 5000); // Update every 5 seconds
+
+        function updateMap(floodLevel) {
+            // Update map features based on real-time data
+            // For example, change the color of the map or display flood markers
+
+            // Example: Display warning if flood level exceeds a threshold
+            const riskThreshold = 7;
+            if (floodLevel > riskThreshold) {
+                document.getElementById('warning').style.display = 'block';
+            } else {
+                document.getElementById('warning').style.display = 'none';
+            }
+        }
+    </script>
+</body>
+
+</html>
